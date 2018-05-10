@@ -136,6 +136,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(bag_read_api src/reading.cpp)
+add_executable(bag_main src/main.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -146,9 +147,13 @@ add_executable(bag_read_api src/reading.cpp)
 ## Add cmake target dependencies of the executable
 ## same as for the library above
  add_dependencies(bag_read_api ${catkin_EXPORTED_TARGETS})
+ add_dependencies(bag_main ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(bag_read_api
+   ${catkin_LIBRARIES}
+ )
+target_link_libraries(bag_main
    ${catkin_LIBRARIES}
  )
 

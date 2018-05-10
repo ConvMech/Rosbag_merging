@@ -52,8 +52,8 @@ public:
 		std::vector<const rosbag::ConnectionInfo *> connection_infos = view.getConnections();
 
 		BOOST_FOREACH(const rosbag::ConnectionInfo *info, connection_infos) {
-			std::cout<<info->topic<<std::endl;
-			std::cout<<info->datatype<<std::endl;
+			//std::cout<<info->topic<<std::endl;
+			//std::cout<<info->datatype<<std::endl;
 		}
 
 		bag_read2.close();
@@ -83,7 +83,7 @@ public:
 int main(int argc, char **argv){
 	ros::init(argc, argv, "api_test");
 	ros::Time::init();
-	const char* args[] = {"/mavros/imu/data"};
+	const char* args[] = {"/mavros/imu/data","/mavros/imu/data_raw"};
 	std::vector<std::string> topic(args, args + sizeof(args)/sizeof(args[0]));
 	mergeBag merge("/home/tommy/bagfile/2018-03-21-23-12-18.bag","/home/tommy/bagfile/2018-03-21-23-13-12.bag",topic);
 	merge.output_bag("/home/tommy/bagfile/api_output_test.bag");
